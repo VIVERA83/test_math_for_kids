@@ -41,6 +41,22 @@ class Example_field(Base):
         image.set_colorkey((0, 0, 0))
         [[image.blit(button.draw(self._correctionMousePos(mouse_pos)), (button.x, button.y)) for button in columns] for
          columns in self.table]
+
+        # Рисуем линию под примером
+        x1 = self.size_button[0]
+        x2 = self.size_button[0] * (self.columns - 1)
+        y = self.size_button[1] * (self.rows - 2)
+        pg.draw.line(image, "red", (x1, y), (x2, y), 4)
+        # рисуем знак +
+        x1 = 5
+        x2 = self.size_button[0] - 5
+        y = self.size_button[1] * (self.rows - 3)
+        pg.draw.line(image, "red", (x1, y), (x2, y), 4)
+
+        y1 = y - (self.size_button[1] // 2) + 5
+        y2 = y + (self.size_button[1] // 2) - 5
+        x1 = self.size_button[0] // 2
+        pg.draw.line(image, "red", (x1, y1), (x1, y2), 4)
         return image
 
     def key_pressed(self, mouse_pos, key):
@@ -51,7 +67,6 @@ class Example_field(Base):
                     result = element.key_pressed(mouse_pos, key)
                     if result:
                         return result
-
 
     def click(self, mouse_pos, mouse_click):
         mouse_pos = self._correctionMousePos(mouse_pos)

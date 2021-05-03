@@ -36,6 +36,8 @@ while run:
             result = sett.button.click(mouse_pos, mouse_click)
             if result:
                 print("кнопку", result)
+                # answer = int("".join(result[1]["down"]))
+                # print("answer = ",answer, answer)
                 if result[1]["down"] == [str(number) for number in str(sett.answer)]:
                     img_answer = sett.Title('a', sett.img_a, sett.img_b).draw()
                     print("молодец")
@@ -45,6 +47,8 @@ while run:
     screen.blit(img_answer, (400, 100))
     screen.blit(sett.button.draw(mouse_pos), (400, 400))
     screen.blit(sett.example_field.draw(mouse_pos), (15, 15))
+    # pygame.draw.line(screen, "red", (20, 100), (60, 100), 4)
+    # pygame.draw.line(screen, "red", (40, 80), (40, 120), 4)
     pygame.display.update()
 
 pygame.quit()

@@ -47,7 +47,7 @@ img_rect = image.load(current_dir + f"Resources\\rect.png")
 
 button = Button("кнопка", img_text, img_act, img_pas)
 button.setCoord((400, 400))
-numbers_lst = get_random_numders(3, 2)  # первый параметр разрядность числа, второй кол-во чисел
+numbers_lst = get_random_numders(4, 3)  # первый параметр разрядность числа, второй кол-во чисел
 answer = sum(numbers_lst)
 print("answer", answer)
 numbers_lst = [str(number) for number in numbers_lst.copy()]
